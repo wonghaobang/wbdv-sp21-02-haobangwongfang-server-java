@@ -1,0 +1,27 @@
+.wbdv-sticky-nav-bar {
+    background-color: #4287f5;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+
+.wbdv-font-size {
+    font-size: 25px;
+}
+
+.plus-icon1 {
+	color: red;
+}
+
+.plus-icon2 {
+	color: red;
+	position: fixed;
+	bottom:10px;
+	right: 10px;
+}
+
+.mt-body {
+    padding-top: 80px;
+}
