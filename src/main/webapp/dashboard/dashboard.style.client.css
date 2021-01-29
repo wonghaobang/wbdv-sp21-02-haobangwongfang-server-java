@@ -23,7 +23,7 @@ body {
 
 
 
-.wbdv-font-size {
+.wbdv-font-size-25 {
     font-size: 25px;
 }
 
@@ -39,11 +39,11 @@ body {
 }
 
 .wbdv-pad-80px {
-    padding-top: 110px;
+    padding-top: 115px;
 }
 
 .wbdv-border-width-10 {
     border-style: solid;
-    border-color: #E8E8E8;
+    border-color: #D8D8D8;
     border-width: 1px;
 }
