@@ -8,6 +8,7 @@ var $editBtn
 var $updateBtn
 var $createBtn
 var $tableRows
+var $clearBtn
 
 // this is going to be treated like constructor in es5
 var userService = new AdminUserServiceClient();
@@ -23,7 +24,6 @@ var userService = new AdminUserServiceClient();
 
 
 function createUser() {
-
     var newUser = {
         username: $usernameFld.val(),
         password: $passwordFld.val(),
@@ -82,6 +82,15 @@ function updateUser() {
 }
 
 
+function clearInput() {
+    $usernameFld.val("");
+    $passwordFld.val("");
+    $firstNameFld.val("");
+    $lastNameFld.val("");
+    $roleFld.val("FACULTY")
+    selectedUser = null
+}
+
 function renderUsers(users) {
     $tableRows.empty()
     for (var i = 0; i < users.length; i++) {
@@ -106,6 +115,7 @@ function renderUsers(users) {
     }
     $(".wbdv-remove").click(deleteUser)
     $(".wbdv-edit").click(selectUser)
+    // clearInput()
 }
 
 
@@ -118,6 +128,7 @@ function main() {
     $tableRows = $('.wbdv-tbody')
     $createBtn = $(".wbdv-create")
     $updateBtn = $(".wbdv-update")
+    $clearBtn = $(".btn")
 
     $usernameFld = $(".wbdv-usernameFld")
     $passwordFld = $(".wbdv-passwordFld")
@@ -125,6 +136,7 @@ function main() {
     $lastNameFld = $(".wbdv-lastNameFld")
     $roleFld = $(".wbdv-roleFld")
 
+    $clearBtn.click(clearInput)
     $updateBtn.click(updateUser)
     $createBtn.click(createUser)
     userService.findAllUsers().then(function (actualUsers) {

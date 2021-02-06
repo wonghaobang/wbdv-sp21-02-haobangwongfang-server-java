@@ -1,6 +1,16 @@
-.wbdv-hidden {
-    display: none;
+/*.wbdv-hidden {*/
+/*    display: none;*/
+/*}*/
+
+body {
+    margin: 0;
+    height: 100%;
+    background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
+
 
 .wbdv-search:hover {
     cursor: pointer;
@@ -26,4 +36,44 @@
 .wbdv-edit:hover {
     cursor: pointer;
     color: #FFD300;
+}
+
+
+.btn {
+    border:none;
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+}
+
+.btn:hover{
+    background: white;
+}
+
+.btn:before, .btn:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
+    transition:400ms ease all;
+}
+
+.btn:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+}
+
+.btn:hover:before, .btn:hover:after{
+    width:100%;
+    transition:800ms ease all;
 }
