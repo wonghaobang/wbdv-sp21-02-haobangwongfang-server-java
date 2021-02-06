@@ -1,0 +1,29 @@
+.wbdv-hidden {
+    display: none;
+}
+
+.wbdv-search:hover {
+    cursor: pointer;
+    color: #4287f5;
+}
+
+.wbdv-create:hover {
+      cursor: pointer;
+      color: darkgray;
+}
+
+
+.wbdv-update:hover {
+    cursor: pointer;
+    color: limegreen;
+}
+
+.wbdv-remove:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.wbdv-edit:hover {
+    cursor: pointer;
+    color: #FFD300;
+}
