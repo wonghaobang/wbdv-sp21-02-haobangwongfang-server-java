@@ -30,6 +30,7 @@
         $clearBtn.click(clearInput)
         $updateBtn.click(updateUser)
         $createBtn.click(createUser)
+        // assign local variable
         userService.findAllUsers().then(function (actualUsers) {
             users = actualUsers
             renderUsers(users)
@@ -64,14 +65,26 @@
     }
 
 
+    // Alternate way of implementing deleteUser if I use index{i} instead of object id{course._id} in renderUser
+    // function deleteUser(event) {
+    //     var removeIcon = $(event.target)
+    //     // this index is different to the below id, this attr("id") is the id of a html tag I gave in line 124
+    //     var index = removeIcon.attr("id")
+    //     // this below _id is the actual id of the object
+    //     var id = users[index]._id
+    //     userService.deleteUser(id)
+    //         .then(function (status) {    // I am receiving the status, but I don't really need to use it
+    //             users.splice(index, 1)
+    //             renderUsers(users)
+    //         })
+    // }
+
+
     function deleteUser(event) {
-        var removeIcon = $(event.target)
-        // this index is different to the below id, this attr("id") is the id of a html tag I gave in line 69
-        var index = removeIcon.attr("id")
-        // this below _id is the actual id of the object
-        var id = users[index]._id
+        var id = $(event.target).attr("id")
         userService.deleteUser(id)
             .then(function (status) {
+                var index = users.findIndex(user => user._id === id)
                 users.splice(index, 1)
                 renderUsers(users)
             })
@@ -107,6 +120,7 @@
     }
 
 
+
     function renderUsers(users) {
         $tableRows.empty()
         for (var i = 0; i < users.length; i++) {
@@ -114,17 +128,17 @@
             $tableRows.append(`
           <tr>
               <td>${user.username}</td>
-    <!--          <td>${user.password}</td>-->
+<!--              <td>${user.password}</td>-->
               <td></td>
               <td>${user.firstname}</td>
               <td>${user.lastname}</td>
               <td>${user.role}</td>
               <td>
                   <span class="float-right">
-                      <i id="${i}" class="fa-2x fa fa-times wbdv-remove"></i>
-    <!--                  below using user_id because now we have object id?-->
-                      <i id="${user._id}" class="fa-2x fa fa-pencil wbdv-edit"></i>
-                    </span>
+<!--                      <i id="${i}" class="fa-2x fa fa-times wbdv-remove"></i>-->
+                      <i id="${user._id}" class="fa-2x fa fa-times wbdv-remove"></i>
+                      <i id="${user._id}" class="fa-2x fa fa-pencil wbdv-edit"></i>                  
+                </span>
               </td>
           </tr>
           `)
@@ -140,6 +154,3 @@
 
 
 })();
-
-
-
