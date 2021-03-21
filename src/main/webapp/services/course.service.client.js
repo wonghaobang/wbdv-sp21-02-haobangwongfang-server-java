@@ -9,7 +9,7 @@ function CourseServiceClient() {
     this.findCourseById = findCourseById;
     this.deleteCourse = deleteCourse;
     this.updateCourse = updateCourse;
-    this.url = 'https://wbdv-generic-server.herokuapp.com/api/001034982/courses';
+    this.url = 'https://wbdv-generic-server.herokuapp.com/api/001034982-hao/courses';
     var self = this;
 
 
